@@ -1,0 +1,66 @@
+.mainBody{
+  display: flex ;
+  justify-content: center;
+  width: 100%;
+}
+.viewUpdate{
+  display: flex ;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+}
+.submitButton{
+  float: left;
+  width: auto;
+  padding: 14px 16px;
+}
+.submitButton:hover{
+  background-color: purple;
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0,0,0,1);
+}
+.randomMatch{
+  border: 15px solid purple;
+  padding: 10px;
+  margin: 15px;
+  width: 20%;
+}
+.updateTable{
+  display: flex ;
+  padding: 10px;
+  margin: 25px;
+  width: 80%;
+}
+.heading{
+  text-align: center;
+  text-decoration: double;
+  font-size: 26px;
+  color: rgb(117, 19, 109);
+}
+th{
+  border: 1px solid hsl(300, 94%, 6%);
+  background-color: #945596;
+  color: white;
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+}
+td {
+  border: 1px solid hsl(0, 0%, 87%);
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #b988b5;
+}
+.errorView{
+  display: flex;
+  border: 15px solid purple;
+  padding: 50px;
+  margin: 20px;
+  justify-content: center;
+}
+

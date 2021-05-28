@@ -1,0 +1,72 @@
+<div class="formContainer">
+  <div class="dateForm">
+    <form #dateForm="ngForm">
+      <h2>Enter Match Details Search Date</h2>
+      <div class="column">
+        <p>Enter Search Day
+          <label class="row">
+            <input type="text" required minlength="1" maxlength="2" pattern="^[0-9]+$" placeholder="DD" #day  name="searchDay" ngModel>
+          </label>
+        </p>
+        <p>Enter Search Month
+          <label class="row">
+            <input type="text" required minlength="1" maxlength="2" pattern="^[0-9]+$" placeholder="MM" #month name="searchMonth" ngModel>
+          </label>
+        </p>
+        <p>Enter Search Year
+          <label class="row">
+            <input type="text" required minlength="4" maxlength="4" pattern="^[0-9]+$" placeholder="YYYY" #year name="searchYear" ngModel>
+          </label>
+        </p>
+        <div class="footer">
+          <button type="submit" class="searchButton" (click)="getDate(day.value,month.value,year.value)"> Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="searchDetail">
+  <!--First handle HTTP server not found error-->
+  <h1 class="errorView" *ngIf="errorMessage.length > 1 ; else elseBlock">{{errorMessage}}</h1>
+  <ng-template #elseBlock>
+    <!--Display proper message when there is no Match details to display-->
+    <h1 class="errorView" *ngIf="selectedResultList == null || selectedResultList.length ==0 ; else nestedElseBlock">
+      No played Matches in that selected date . Unable to display Match details
+    </h1>
+
+    <ng-template #nestedElseBlock>
+      <h1>Selected Date Match Details</h1>
+      <div class="tableView">
+        <table>
+          <thead>
+          <tr class="headingRow">
+            <th colspan="3">Match Played Date</th>
+            <th colspan="2">Team 01</th>
+            <th colspan="2">Team 02</th>
+          </tr>
+          <tr>
+            <th>Day</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Team Name</th>
+            <th>Match Goals Score</th>
+            <th>Team Name</th>
+            <th>Match Goals Score</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="bodyRow" *ngFor="let match of selectedResultList">
+            <td>{{match.matchPlayedDate.day}}</td>
+            <td>{{match.matchPlayedDate.month}}</td>
+            <td>{{match.matchPlayedDate.year}}</td>
+            <td>{{match.matchPlayedClub[0].clubName.toUpperCase()}}</td>
+            <td>{{match.team01GoalScore}}</td>
+            <td>{{match.matchPlayedClub[1].clubName.toUpperCase()}}</td>
+            <td>{{match.team02GoalScore}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

@@ -1,0 +1,89 @@
+.column{
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #b988b5;
+}
+
+input.ng-invalid{
+  border-color: purple;
+}
+input.ng-untouched{
+  border-color: purple;
+}
+.row{
+  float:right;
+  width: 500px;
+  margin-right: 10px;
+
+}
+.formContainer{
+  display: flex ;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+}
+.dateForm{
+  border: 15px solid purple;
+  padding: 10px;
+  margin: 15px;
+  width: 50%;
+}
+.footer{
+  display: flex ;
+  justify-content: center;
+  justify-items: center;
+}
+.searchButton{
+  border-radius:5px ;
+  padding: 5px;
+  background-color: rgb(75, 18, 67);
+  color:white;
+  font-size: 15px;
+}
+.searchButton:hover{
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+h1{
+  text-align: center;
+  text-decoration: double;
+  color: rgb(117, 19, 109);
+
+}
+.tableView{
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+th{
+  border: 1px solid hsl(300, 94%, 6%);
+  background-color: #945596;
+  color: white;
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+
+
+}
+td {
+  border: 1px solid hsl(0, 0%, 87%);
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #b988b5;
+}
+
+.errorView{
+  display: flex;
+  border: 15px solid purple;
+  padding: 50px;
+  margin: 18px;
+  justify-content: center;
+}
+.searchDetail{
+  padding: 20px;
+  margin: 20px;
+}

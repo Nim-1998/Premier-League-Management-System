@@ -1,0 +1,39 @@
+h1{
+  text-align: center;
+  text-decoration: double;
+  color: rgb(117, 19, 109);
+
+}
+.tableView{
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+th{
+  border: 1px solid hsl(300, 94%, 6%);
+  background-color: #945596;
+  color: white;
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+
+
+}
+td {
+  border: 1px solid hsl(0, 0%, 87%);
+  text-align: left;
+  padding: 6px;
+  table-layout: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #b988b5;
+}
+
+.errorView{
+  display: flex;
+  border: 15px solid purple;
+  padding: 50px;
+  margin: 20px;
+  justify-content: center;
+}

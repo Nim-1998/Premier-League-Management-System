@@ -1,0 +1,73 @@
+
+<!--First handle HTTP server not found error-->
+<h1 class="errorView" *ngIf="errorMessage.length > 1 ; else elseBlock">{{errorMessage}}</h1>
+
+<ng-template #elseBlock>
+  <h2 class="heading">Press button to generate random match</h2>
+  <div class="viewUpdate">
+    <button type="submit" (click)="randomMatch()" class="submitButton">Generate Match</button>
+  </div>
+  <h1 class="errorView" *ngIf="isNotMatchCreated ; else elseBlock2">
+    Click Button
+  </h1>
+    <ng-template #elseBlock2>
+      <h1 class="errorView" *ngIf="randomGeneratedMatch == null ; else elseBlock3">
+        Football collection is empty. To generate random Match at least two Football Clubs required
+      </h1>
+      <ng-template #elseBlock3>
+        <h2 class="heading">After generate Match press button to view updated Premier League Table</h2>
+        <div class="viewUpdate">
+          <button type="submit" (click)="viewUpdateTable()" class="submitButton">Display Table Content</button>
+        </div>
+        <h1 class="heading">Updated Football Club Details</h1>
+
+        <div class="mainBody">
+          <div class="randomMatch">
+            <h2>Generated Match Details</h2>
+            <h3>
+              {{"Match Played Date : "+ randomGeneratedMatch.matchPlayedDate.day+
+                "/"+randomGeneratedMatch.matchPlayedDate.month+
+                "/"+randomGeneratedMatch.matchPlayedDate.year}}
+            </h3>
+            <h3><u>Team 01 </u></h3>
+            <h4>{{"Name : "+randomGeneratedMatch.matchPlayedClub[0].clubName.toUpperCase()}}</h4>
+            <h4>{{"Goals Score : "+randomGeneratedMatch.team01GoalScore}}</h4>
+            <h3><u>Team 02 </u></h3>
+            <h4>{{"Name : "+randomGeneratedMatch.matchPlayedClub[1].clubName.toUpperCase()}}</h4>
+            <h4>{{"Goals Score : "+randomGeneratedMatch.team02GoalScore}}</h4>
+
+          </div>
+          <div class="updateTable">
+            <table>
+              <thead>
+              <tr class="headingRow">
+                <th>Club Name</th>
+                <th>Total Played Matches</th>
+                <th>Win</th>
+                <th>Defeat</th>
+                <th>Draw</th>
+                <th>Goals Score</th>
+                <th>Goals Against Received</th>
+                <th>Goals Difference</th>
+                <th>Points</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="bodyRow" *ngFor="let club of footballList">
+                <td>{{club.clubName.toUpperCase()}}</td>
+                <td>{{club.noOfTotalSeriousPlayedMatch}}</td>
+                <td>{{club.noOfWinMatch}}</td>
+                <td>{{club.noOfDefeatMatch}}</td>
+                <td>{{club.noOfDrawMatch}}</td>
+                <td>{{club.noOfGoalsScored}}</td>
+                <td>{{club.noOfGoalsReceived}}</td>
+                <td>{{club.noOfGoalsScored-club.noOfGoalsReceived}}</td>
+                <td>{{club.currentPoint}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+</ng-template>

@@ -1,0 +1,42 @@
+<!--First handle HTTP server not found error-->
+<h1 class="errorView" *ngIf="errorMessage.length > 1 ; else elseBlock">{{errorMessage}}</h1>
+<ng-template #elseBlock>
+  <!--Display proper message when Football list is empty-->
+  <h1 class="errorView" *ngIf="sortedPointList == null ; else nestedElseBlock" >
+    Football club data collection file is empty. Unable to display Premier League Table
+  </h1>
+
+  <ng-template #nestedElseBlock>
+    <h1>Premier League Table Sort By Number Of Points</h1>
+    <div class="tableView">
+      <table>
+        <thead>
+          <tr class="headingRow">
+            <th>Club Name</th>
+            <th>Total Played Matches</th>
+            <th>Win</th>
+            <th>Defeat</th>
+            <th>Draw</th>
+            <th>Goals Score</th>
+            <th>Goals Against Received</th>
+            <th>Goals Difference</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bodyRow" *ngFor="let club of sortedPointList">
+            <td>{{club.clubName.toUpperCase()}}</td>
+            <td>{{club.noOfTotalSeriousPlayedMatch}}</td>
+            <td>{{club.noOfWinMatch}}</td>
+            <td>{{club.noOfDefeatMatch}}</td>
+            <td>{{club.noOfDrawMatch}}</td>
+            <td>{{club.noOfGoalsScored}}</td>
+            <td>{{club.noOfGoalsReceived}}</td>
+            <td>{{club.noOfGoalsScored-club.noOfGoalsReceived}}</td>
+            <td>{{club.currentPoint}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</ng-template>

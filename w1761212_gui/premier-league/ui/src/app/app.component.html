@@ -1,0 +1,23 @@
+<div class="imageTab">
+  <img
+    alt="Premier League Logo"
+    src="assets/images/logo.png" width="5%" height="3%"
+  />
+  <span>Premier League</span>
+</div>
+<div>
+  <ul>
+    <!--Buttons with navigations-->
+    <li><button><a routerLink="home-page"><img src="assets/images/homeIcon.png"></a></button></li>
+    <li><button><a routerLink="club-detail">Sports club details</a></button></li>
+    <li><button><a routerLink="sort-by-point">Table sort by points</a></button> </li>
+    <li><button><a routerLink="sort-by-win">Table sort by wins</a></button> </li>
+    <li><button><a routerLink="sort-by-goal-score">Table sort by goals score</a></button></li>
+    <li><button><a routerLink="sorted-match-list">Sort matches by played date</a></button></li>
+    <li><button><a routerLink="random-match">Generate random match</a></button></li>
+    <li><button><a routerLink="search-match">Search Match details by date</a></button></li>
+
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
